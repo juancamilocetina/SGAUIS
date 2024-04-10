@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+</head>
+<body>
+    <h2>Iniciar sesión</h2>
+    <form id="login-form" action="/login" method="POST">
+        <div>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <button type="submit">Iniciar sesión</button>
+    </form>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Correo electrónico o contraseña incorrectos');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data.message);
+                // Redireccionar a otra página o realizar alguna acción adicional
+            })
+            .catch(error => {
+                console.error('Error:', error.message);
+                alert(error.message);
+            });
+        });
+    </script>
+</body>
+</html>
+
