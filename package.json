@@ -1,0 +1,29 @@
+{
+  "name": "sgauis",
+  "version": "1.0.0",
+  "description": "Proyecto Ingeniería de Software II",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juancamilocetina/SGAUIS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juancamilocetina/SGAUIS/issues"
+  },
+  "homepage": "https://github.com/juancamilocetina/SGAUIS#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
